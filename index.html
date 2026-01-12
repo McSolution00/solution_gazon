@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Solution Gazon</title>
+    <title>MC Solution Gazon | Paysagisme & Entretien</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><center><img src="miguel-logo.png" alt="MC Solution Gazon" class="logo"></center></header>
+    <header><div class="header-container"><center><img src="miguel-logo.png" alt="Logo" class="logo"></center></div></header>
 
     <section class="hero">
         <div class="hero-content">
@@ -20,7 +20,16 @@
     </section>
 
     <main class="container">
-        <h2 style="text-align:center; margin-top:40px;">NOS FORFAITS | OUR PACKAGES</h2>
+        <section class="services-section">
+            <h2 style="text-align:center; margin-top:40px;">NOS SERVICES | OUR SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-seedling"></i><h3>Entretien Complet</h3><p>Tonte, soufflage et bordures.</p></div>
+                <div class="service-card"><i class="fas fa-leaf"></i><h3>Soin Saisonnier</h3><p>Printemps et Automne.</p></div>
+                <div class="service-card"><i class="fas fa-spray-can"></i><h3>Traitements</h3><p>Fertilisation et mauvaises herbes.</p></div>
+            </div>
+        </section>
+
+        <h2 style="text-align:center;">NOS FORFAITS | OUR PACKAGES</h2>
         <div class="pricing-grid">
             <div class="price-box" onclick="openModal('small-lot')">
                 <span class="price-tag">65$</span>
@@ -48,8 +57,9 @@
         </div>
 
         <div class="quote-card">
+            <i class="fas fa-shopping-basket" style="font-size:3rem; color:var(--primary);"></i>
             <h2>VOTRE SÉLECTION | YOUR SELECTION</h2>
-            <div id="cart-display" class="cart-items"><p>Aucun service sélectionné</p></div>
+            <div id="cart-display" class="cart-items"><p>Aucun service sélectionné / No services selected</p></div>
             <button onclick="sendFinalEmail()" class="btn-quote">DEMANDER MON ESTIMATION | GET MY QUOTE</button>
         </div>
     </main>
@@ -60,6 +70,11 @@
             <div id="modal-body"></div>
         </div>
     </div>
+    <footer>
+        <p><a href="mailto:mcsolutiongazon@gmail.com" style="color:var(--secondary); text-decoration:none;">mcsolutiongazon@gmail.com</a></p>
+        <p class="disclaimer">* Services effectués selon les réglementations locales. Services de fertilisation et contrôle des herbes vendus séparément.</p>
+        <p>&copy; 2025 MC Solution Gazon</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
