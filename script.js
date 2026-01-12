@@ -4,21 +4,21 @@ let tempAddons = [];
 const modalData = {
     'small-lot': {
         fr: `<h3>Petit terrain (65$ / visite)</h3>
-             <p>Inclus: Tonte, coupe-bordure, et soufflage. Bordure une fois par mois.</p><hr>`,
+             <p>Le service inclut la tonte, le coupe-bordure (weedeater) et le soufflage. La bordure mécanique est incluse une fois par mois.</p><hr>`,
         en: `<h3>Small Lot ($65 / visit)</h3>
-             <p>Includes: Mowing, trimming, and blowing. Edging once a month.</p>
+             <p>Service includes mowing, weed-eating, and blowing. Mechanical edging included once a month.</p>
              <button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$/visite)')">Ajouter / Add</button>`
     },
     'custom-quote': {
         fr: `<h3>Terrain Standard / Standard Lot</h3>
              <p>Contact: <strong>mcsolutiongazon@gmail.com</strong></p>
-             <div style="text-align:left; margin-top:15px;">
-                <label>Adresse / Address:</label><br>
-                <input type="text" id="q_addr" style="width:100%; margin-bottom:10px; padding:5px;">
-                <label>Taille / Size (pi²):</label><br>
-                <input type="text" id="q_size" style="width:100%; margin-bottom:10px; padding:5px;">
-                <label>Contact (Tel/Email):</label><br>
-                <input type="text" id="q_contact" style="width:100%; margin-bottom:10px; padding:5px;">
+             <div style="text-align:left; margin-top:15px; border: 1px solid #ddd; padding: 15px; border-radius: 10px;">
+                <label><b>Adresse / Address:</b></label><br>
+                <input type="text" id="q_addr" placeholder="123 Rue..." style="width:100%; margin-bottom:10px; padding:8px;">
+                <label><b>Taille du terrain / Lawn Size (pi²):</b></label><br>
+                <input type="text" id="q_size" placeholder="e.g. 5000" style="width:100%; margin-bottom:10px; padding:8px;">
+                <label><b>Contact (Tel / Email):</b></label><br>
+                <input type="text" id="q_contact" style="width:100%; margin-bottom:10px; padding:8px;">
              </div>
              <button class="btn-quote" onclick="sendCustomQuote()">ENVOYER & AJOUTER / SEND & ADD</button>`
     }
@@ -71,7 +71,6 @@ function addItem(item) {
     closeModal();
 }
 
-// Special function for Box #2 to collect data and add it to cart
 function sendCustomQuote() {
     const addr = document.getElementById('q_addr').value;
     const size = document.getElementById('q_size').value;
@@ -91,11 +90,11 @@ function updateCart() {
     if (selection.length === 0) {
         display.innerHTML = '<p>Aucun service sélectionné / No services selected</p>';
     } else {
-        display.innerHTML = `<ul id="cart-list">
+        display.innerHTML = `<ul style="list-style:none; padding:0;">
             ${selection.map((item, index) => `
-                <li style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-                    ${item} 
-                    <button onclick="removeItem(${index})" style="background:none; border:none; color:red; cursor:pointer; font-weight:bold; padding-left:10px;">✕</button>
+                <li style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; background:#fff; padding:5px; border-radius:5px;">
+                    <span>${item}</span>
+                    <button onclick="removeItem(${index})" style="background:#ff4444; color:white; border:none; border-radius:3px; cursor:pointer; padding:2px 8px;">✕</button>
                 </li>
             `).join('')}
         </ul>`;
