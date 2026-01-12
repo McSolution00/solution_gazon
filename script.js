@@ -3,14 +3,10 @@ let tempAddons = [];
 
 const modalData = {
     'small-lot': {
-        item: 'Petit terrain / Small Lot (65$)',
-        fr: `<h3>Petit terrain (65$)</h3><ul><li>Tonte, coupe-bordure, soufflage</li><li>Bordure une fois par mois</li></ul><button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$)')">Ajouter / Add</button>`,
-        en: `<h3>Small Lot ($65)</h3><ul><li>Mowing, trimming, blowing</li><li>Once a month edging</li></ul>`
+        fr: `<h3>Petit terrain (65$)</h3><ul><li>Tonte, coupe-bordure, soufflage</li><li>Bordure une fois par mois</li></ul><button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$)')">Ajouter / Add</button>`
     },
     'custom-quote': {
-        item: 'Estimation: Terrain Standard / Standard Lot',
-        fr: `<h3>Terrain Standard</h3><p>Veuillez envoyer votre adresse et la taille du terrain pour une estimation.</p><button class="btn-quote" onclick="addItem('Estimation: Terrain Standard')">Ajouter / Add</button>`,
-        en: `<h3>Standard Lot</h3><p>Please email your address and lawn size for an estimate.</p>`
+        fr: `<h3>Terrain Standard</h3><p>Veuillez envoyer votre adresse et la taille du terrain pour une estimation.</p><button class="btn-quote" onclick="addItem('Estimation: Terrain Standard')">Ajouter / Add</button>`
     }
 };
 
@@ -25,6 +21,7 @@ const addonsList = [
 function openModal(id) {
     const body = document.getElementById('modal-body');
     if (id === 'addons-modal') {
+        // Prepare temporary storage for Add-ons
         tempAddons = [...selection.filter(i => addonsList.some(a => `${a.fr} / ${a.en}` === i))];
         let html = '<h3>Add-ons / Services Additionnels</h3>';
         addonsList.forEach((a, i) => {
@@ -32,9 +29,11 @@ function openModal(id) {
             const isChecked = tempAddons.includes(label) ? 'checked' : '';
             html += `<div style="margin:10px 0;"><input type="checkbox" id="a${i}" ${isChecked} onchange="updateTemp('${label}')"> <label for="a${i}">${label}</label></div>`;
         });
+        // ONLY the Add-on box gets the "Confirm" button
         html += `<button class="btn-quote" onclick="confirmAddons()">CONFIRMER / CONFIRM</button>`;
         body.innerHTML = html;
     } else {
+        // Original behavior for the first two boxes
         body.innerHTML = modalData[id].fr;
     }
     document.getElementById('modal-overlay').style.display = 'flex';
