@@ -20,7 +20,7 @@ const modalData = {
                 <label><b>Contact (Tel / Email):</b></label><br>
                 <input type="text" id="q_contact" style="width:100%; margin-bottom:10px; padding:8px;">
              </div>
-             <button class="btn-quote" onclick="sendCustomQuote()">ENVOYER & AJOUTER / SEND & ADD</button>`
+             <button class="btn-quote" onclick="sendCustomQuote()">AJOUTER & ENVOYER / ADD & SEND</button>`
     }
 };
 
@@ -92,9 +92,9 @@ function updateCart() {
     } else {
         display.innerHTML = `<ul style="list-style:none; padding:0;">
             ${selection.map((item, index) => `
-                <li style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; background:#fff; padding:5px; border-radius:5px;">
+                <li style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; background:#fff; padding:10px; border-radius:8px; border-left: 5px solid #2e7d32; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
                     <span>${item}</span>
-                    <button onclick="removeItem(${index})" style="background:#ff4444; color:white; border:none; border-radius:3px; cursor:pointer; padding:2px 8px;">✕</button>
+                    <button onclick="removeItem(${index})" style="background:#ff4444; color:white; border:none; border-radius:50%; cursor:pointer; width:26px; height:26px; font-weight:bold; flex-shrink:0; margin-left:10px;">✕</button>
                 </li>
             `).join('')}
         </ul>`;
