@@ -5,7 +5,7 @@ const modalData = {
         fr: `<h3>Petit terrain (65$)</h3>
              <ul><li>Tonte, coupe-bordure, soufflage des rognures</li><li>Bordure une fois par mois</li></ul>
              <p><strong>Détails :</strong> Plus taxes. Par visite.</p>
-             <button class="btn-quote" onclick="addItem('Petit terrain (65$)')">Ajouter / Add</button>`,
+             <button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$)')">Ajouter / Add</button>`,
         en: `<h3>Small Lot ($65)</h3>
              <ul><li>Mowing, trimming, blowing clippings</li><li>Once a month edging</li></ul>
              <p><strong>Details:</strong> Plus taxes. Per visit.</p>
@@ -40,7 +40,10 @@ function openModal(id) {
         addons.forEach((a, i) => {
             const label = `${a.fr} / ${a.en}`;
             const checked = selection.includes(label) ? 'checked' : '';
-            html += `<div class="addon-row"><input type="checkbox" id="a${i}" ${checked} onchange="toggleAddon('${label}')"> <label for="a${i}">${label}</label></div>`;
+            html += `<div style="display:flex; align-items:center; margin:10px 0;">
+                        <input type="checkbox" id="a${i}" ${checked} onchange="toggleAddon('${label}')" style="margin-right:10px; width:18px; height:18px;"> 
+                        <label for="a${i}">${label}</label>
+                     </div>`;
         });
         body.innerHTML = html;
     } else {
@@ -71,6 +74,6 @@ function updateCart() {
 
 function sendFinalEmail() {
     if (!selection.length) return alert("Sélectionnez un service!");
-    const body = encodeURIComponent("Demande d'estimation pour :\n\n" + selection.join("\n") + "\n\nAdresse:");
+    const body = encodeURIComponent("Bonjour,\n\nJe souhaite une estimation pour :\nI would like a quote for:\n\n" + selection.join("\n") + "\n\nAdresse / Address:");
     window.location.href = `mailto:mcsolutiongazon@gmail.com?subject=Estimation MC Solution&body=${body}`;
 }
