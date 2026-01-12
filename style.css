@@ -1,4 +1,4 @@
-/* Variables de Diseño */
+/* Variables */
 :root {
     --primary: #2e7d32;
     --secondary: #81c784;
@@ -22,7 +22,6 @@ body {
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .container {
@@ -31,7 +30,6 @@ h1, h2, h3 {
     padding: 0 20px;
 }
 
-/* Header Responsivo */
 header {
     background: var(--white);
     padding: 15px 0;
@@ -42,14 +40,13 @@ header {
     z-index: 1000;
 }
 
-.logo { height: 85px; width: auto; object-fit: contain; transition: 0.3s; }
+.logo { height: 85px; width: auto; }
 
-/* Hero Section Responsiva */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-background.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 75vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,153 +55,126 @@ header {
     padding: 40px 20px;
 }
 
-.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 10px; }
 .highlight { color: var(--secondary); }
-.hero-sub { font-size: clamp(1rem, 3vw, 1.5rem); font-weight: 300; margin-bottom: 30px; }
 
-/* Botones con Efectos */
-.btn-call, .btn-quote {
+.btn-call {
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 35px;
+    border-radius: 50px;
     font-weight: bold;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 }
 
-.btn-call {
-    background: var(--primary);
-    color: var(--white);
-    padding: 20px 45px;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.btn-call:hover {
-    background: var(--dark);
-    transform: translateY(-3px);
-}
-
-/* Servicios Grid Responsivo */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.service-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; }
-.service-card hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-
-/* Precios Responsivos */
+/* Pricing Grid - Updated for smaller height */
 .pricing-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
 }
 
 .price-box {
     background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.3s;
+    min-height: 160px; /* Reduced vertical size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price-box:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.price-box.featured { border: 2px solid var(--primary); }
+.price-tag { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+
+/* Services and Gallery */
+.services-grid, .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.service-card, .gallery-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.gallery-item img { width: 100%; border-radius: 10px; }
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.addon-row {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.addon-row input { margin-right: 15px; width: 20px; height: 20px; }
+
+/* Quote Section */
+.quote-card {
+    background: white;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    width: 100%;
-    max-width: 320px;
-    border: 1px solid #ddd;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.price-box.featured {
-    border: 3px solid var(--primary);
-}
-
-.price-tag { font-size: 2.2rem; font-weight: bold; color: var(--primary); display: block; }
-
-/* Galería Responsiva */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    background: var(--white);
-    padding: 12px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+.cart-items {
+    background: #f1f8e9;
+    padding: 15px;
     border-radius: 10px;
-    transition: transform 0.3s;
+    margin: 20px 0;
+    text-align: left;
 }
-
-.gallery-item:hover img { transform: scale(1.03); }
-
-/* Cotización CTA */
-.quote-cta-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #f1f8e9 0%, #ffffff 100%);
-    text-align: center;
-}
-
-.quote-card {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--white);
-    padding: 50px 40px;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-.quote-icon { font-size: 4rem; color: var(--primary); margin-bottom: 20px; }
 
 .btn-quote {
     background: var(--primary);
-    color: var(--white);
-    padding: 22px 50px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 100%;
 }
 
-.btn-quote:hover {
-    background: var(--dark);
-    transform: scale(1.05);
-}
-
-/* Footer y Enlaces */
-footer {
-    background: #111;
-    color: var(--white);
-    padding: 60px 20px;
-    text-align: center;
-    margin-top: 80px;
-}
-
-.footer-link {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.footer-link:hover { color: var(--secondary); }
-
-.disclaimer { font-size: 0.8rem; color: #777; margin-top: 20px; }
-
-/* Media Queries para Tablets y Móviles */
-@media (max-width: 768px) {
-    .price-box.featured { transform: none; }
-    .quote-card { padding: 30px 20px; }
-    .btn-quote { padding: 18px 30px; width: 100%; }
-}
+footer { background: #111; color: white; padding: 40px 20px; text-align: center; }
+.footer-link { color: var(--secondary); text-decoration: none; }
