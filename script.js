@@ -4,12 +4,12 @@ let tempAddons = [];
 const modalData = {
     'small-lot': {
         item: 'Petit terrain / Small Lot (65$)',
-        fr: `<h3>Petit terrain (65$)</h3><ul><li>Tonte, coupe-bordure, soufflage</li><li>Bordure une fois par mois</li></ul>`,
+        fr: `<h3>Petit terrain (65$)</h3><ul><li>Tonte, coupe-bordure, soufflage</li><li>Bordure une fois par mois</li></ul><button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$)')">Ajouter / Add</button>`,
         en: `<h3>Small Lot ($65)</h3><ul><li>Mowing, trimming, blowing</li><li>Once a month edging</li></ul>`
     },
     'custom-quote': {
         item: 'Estimation: Terrain Standard / Standard Lot',
-        fr: `<h3>Terrain Standard</h3><p>Veuillez envoyer votre adresse et la taille du terrain pour une estimation.</p>`,
+        fr: `<h3>Terrain Standard</h3><p>Veuillez envoyer votre adresse et la taille du terrain pour une estimation.</p><button class="btn-quote" onclick="addItem('Estimation: Terrain Standard')">Ajouter / Add</button>`,
         en: `<h3>Standard Lot</h3><p>Please email your address and lawn size for an estimate.</p>`
     }
 };
@@ -35,7 +35,7 @@ function openModal(id) {
         html += `<button class="btn-quote" onclick="confirmAddons()">CONFIRMER / CONFIRM</button>`;
         body.innerHTML = html;
     } else {
-        body.innerHTML = modalData[id].fr + "<hr>" + modalData[id].en + `<button class="btn-quote" onclick="addItem('${modalData[id].item}')">CONFIRMER / CONFIRM</button>`;
+        body.innerHTML = modalData[id].fr;
     }
     document.getElementById('modal-overlay').style.display = 'flex';
 }
@@ -59,12 +59,12 @@ function addItem(item) {
     closeModal();
 }
 
-function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
-
 function updateCart() {
     const display = document.getElementById('cart-display');
     display.innerHTML = selection.length ? `<ul>${selection.map(i => `<li>${i}</li>`).join('')}</ul>` : '<p>Aucun service sélectionné / No services selected</p>';
 }
+
+function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
 
 function sendFinalEmail() {
     if (!selection.length) return alert("Sélectionnez un service!");
