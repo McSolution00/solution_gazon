@@ -3,121 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Solution Gazon | Paysagisme & Entretien</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>MC Solution Gazon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-        <div class="header-container">
-            <img src="miguel-logo.png" alt="MC Solution Gazon" class="logo">
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>VOUS MÉRITEZ UNE <span class="highlight">PELOUSE IMPECCABLE</span></h1>
-            <p class="hero-sub">YOU DESERVE A BEAUTIFUL, HEALTHY LAWN</p>
-            <a href="tel:+10000000000" class="btn-call">
-                <i class="fas fa-phone-alt"></i> APPELER / CALL NOW
-            </a>
-        </div>
-    </section>
+    <header><center><img src="miguel-logo.png" style="height:80px;"></center></header>
 
     <main class="container">
-        
-        <section class="services-section">
-            <h2 class="section-title">NOS SERVICES | OUR SERVICES</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-seedling"></i>
-                    <div class="service-text">
-                        <h3>Entretien Complet / Full Maintenance</h3>
-                        <p>Tonte, soufflage et finition des bordures. / Mowing, trimming and edging.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <i class="fas fa-leaf"></i>
-                    <div class="service-text">
-                        <h3>Soin Saisonnier / Seasonal Care</h3>
-                        <p>Nettoyage printanier, aération et déchaumage. / Spring cleanup, aeration and dethatching.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <i class="fas fa-spray-can"></i>
-                    <div class="service-text">
-                        <h3>Traitements / Treatments</h3>
-                        <p>Fertilisation et contrôle des mauvaises herbes. / Fertilization and weed control.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="pricing-section">
             <h2 class="section-title">FORFAITS | PACKAGES</h2>
             <div class="pricing-grid">
-                <div class="price-box clickable" onclick="openModal('small-lot')">
-                    <span class="price-tag">35$</span>
+                <div class="price-box" onclick="openModal('small-lot')">
+                    <span class="price-tag">65$</span>
                     <h4>Petit terrain / Small lot</h4>
-                    <p>2,000 – 5,000 pi²</p>
-                    <small>Détails & Inclusions <i class="fas fa-plus-circle"></i></small>
+                    <p>Jusqu'à 2,000 pi²</p>
+                    <small>Cliquez pour détails / Click for details</small>
                 </div>
 
-                <div class="price-box featured clickable" onclick="openModal('custom-quote')">
-                    <span class="price-tag">Estimation</span>
+                <div class="price-box featured" onclick="openModal('custom-quote')">
+                    <span class="price-tag">Sur Mesure</span>
                     <h4>Terrain Standard / Standard Lot</h4>
-                    <p>5,000 pi² +</p>
-                    <small>Obtenir un prix / Get a price <i class="fas fa-plus-circle"></i></small>
+                    <p>2,000 - 5,000 pi² +</p>
+                    <small>Cliquez pour détails / Click for details</small>
                 </div>
 
                 <div class="price-box addon-box" onclick="openModal('addons-modal')">
-                    <span class="price-tag"><i class="fas fa-list-ul"></i></span>
-                    <h4>Services / Add-ons</h4>
-                    <p>Personnalisez votre plan</p>
-                    <small>Choisir / Choose <i class="fas fa-check-square"></i></small>
+                    <span class="price-tag"><i class="fas fa-plus"></i></span>
+                    <h4>Add-ons</h4>
+                    <p>Services additionnels</p>
+                    <small>Choisir / Choose</small>
                 </div>
             </div>
         </section>
 
-        <section class="gallery-section">
-            <h2 class="section-title">NOS RÉALISATIONS | OUR WORK</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="trabajo1.jpg" alt="Work 1">
-                    <p>Nettoyage complet / Full Cleanup</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="trabajo2.jpg" alt="Work 2">
-                    <p>Tonte et Bordure / Mowing & Edging</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="trabajo3.jpg" alt="Work 3">
-                    <p>Traitement Pelouse / Lawn Treatment</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="trabajo4.jpg" alt="Work 4">
-                    <p>Aération / Aeration</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="quote-cta-section" id="quote">
+        <section class="quote-cta-section">
             <div class="quote-card">
-                <i class="fas fa-file-invoice-dollar quote-icon"></i>
                 <h2>VOTRE SÉLECTION | YOUR SELECTION</h2>
                 <div id="cart-display" class="cart-items">
                     <p>Aucun service sélectionné / No services selected</p>
                 </div>
-                <button onclick="sendFinalEmail()" class="btn-quote" style="border:none; cursor:pointer; margin-top: 20px;">
-                    <i class="fas fa-paper-plane"></i> DEMANDER / GET ESTIMATE
-                </button>
+                <button onclick="sendFinalEmail()" class="btn-quote">DEMANDER / GET ESTIMATE</button>
             </div>
         </section>
-
     </main>
 
     <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
@@ -127,15 +55,6 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <p><i class="fas fa-envelope"></i> <a href="mailto:glscape1@hotmail.com" class="footer-link">glscape1@hotmail.com</a></p>
-            <p class="disclaimer">* Services effectués selon les réglementations locales. Fertilisation et contrôle des herbes vendus séparément.</p>
-            <p>&copy; 2025 MC Solution Gazon</p>
-        </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
-
