@@ -23,7 +23,7 @@ header { background: var(--white); text-align: center; padding: 15px 0; border-b
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Pricing Grid - 3 Columns */
+/* Pricing Grid */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -37,31 +37,34 @@ header { background: var(--white); text-align: center; padding: 15px 0; border-b
     display: flex; flex-direction: column; justify-content: center;
 }
 
-/* GALLERY FIX: 4 Columns side-by-side */
+/* Green & Visible Text Styles */
+.price-tag { 
+    font-size: 2rem; 
+    font-weight: 800; 
+    color: var(--primary); 
+    margin-bottom: 5px;
+}
+
+.green-title {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Gallery */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* FORCES 4 COLUMNS */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 15px;
     margin-bottom: 50px;
 }
-
 .gallery-item { background: white; padding: 8px; border-radius: 10px; text-align: center; }
-.gallery-item img {
-    width: 100%;
-    height: 180px; /* Adjusted height for 4 columns */
-    object-fit: cover;
-    border-radius: 5px;
-}
-.gallery-item p { font-size: 0.8rem; margin: 5px 0 0; }
+.gallery-item img { width: 100%; height: 180px; object-fit: cover; border-radius: 5px; }
 
-/* Mobile: Stack items on small screens so they don't look tiny */
 @media (max-width: 900px) {
     .pricing-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); } /* 2 per row on tablets */
-}
-
-@media (max-width: 600px) {
-    .gallery-grid { grid-template-columns: 1fr; } /* 1 per row on phones */
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Modal and Cart */
@@ -69,7 +72,6 @@ header { background: var(--white); text-align: center; padding: 15px 0; border-b
 .modal-content { background:white; padding:30px; border-radius:15px; width:90%; max-width:400px; position:relative; }
 .close-btn { position:absolute; top:10px; right:20px; font-size:25px; cursor:pointer; }
 .cart-items { background:#f1f8e9; padding:15px; border-radius:10px; margin:15px 0; text-align:left; border: 1px dashed var(--primary); }
-.btn-quote { background:var(--primary); color:white; padding:20px; border-radius:8px; font-weight:bold; width: 100%; border:none; cursor:pointer; }
+.btn-quote { background:var(--primary); color:white; padding:15px; border-radius:8px; font-weight:bold; width: 100%; border:none; cursor:pointer; margin-top: 10px; }
 
 footer { background: #111; color: white; padding: 40px; text-align: center; }
-.disclaimer { font-size: 0.8rem; color: #888; margin-top: 15px; }
