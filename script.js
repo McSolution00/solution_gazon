@@ -3,23 +3,23 @@ let selection = [];
 const modalData = {
     'small-lot': {
         fr: `<h3>Petit terrain (65$)</h3>
-             <p>Inclus : Tonte, coupe-bordure, soufflage des rognures et bordure une fois par mois.</p>
+             <ul><li>Tonte, coupe-bordure, soufflage des rognures</li><li>Bordure une fois par mois</li></ul>
              <p><strong>Détails :</strong> Plus taxes. Par visite.</p>
-             <button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$)')">Ajouter à ma liste / Add to list</button>`,
+             <button class="btn-quote" onclick="addItem('Petit terrain (65$)')">Ajouter / Add</button>`,
         en: `<h3>Small Lot ($65)</h3>
-             <p>Included: Mowing, trimming, blowing clippings and once a month edging.</p>
+             <ul><li>Mowing, trimming, blowing clippings</li><li>Once a month edging</li></ul>
              <p><strong>Details:</strong> Plus taxes. Per visit.</p>
-             <button class="btn-quote" onclick="addItem('Small Lot ($65)')">Add to list</button>`
+             <button class="btn-quote" onclick="addItem('Small Lot ($65)')">Add</button>`
     },
     'custom-quote': {
         fr: `<h3>Terrain Standard</h3>
-             <p>Inclus : Tonte, coupe-bordure, soufflage des rognures et bordure une fois par mois.</p>
-             <p><strong>Note :</strong> Veuillez envoyer votre adresse et la taille de votre terrain à mcsolutiongazon@gmail.com pour recevoir une estimation.</p>
-             <button class="btn-quote" onclick="addItem('Estimation: Terrain Standard / Standard Lot')">Ajouter à ma liste / Add to list</button>`,
+             <ul><li>Tonte, coupe-bordure, soufflage des rognures</li><li>Bordure une fois par mois</li></ul>
+             <p>Veuillez envoyer votre adresse et la taille de votre terrain à <strong>mcsolutiongazon@gmail.com</strong> pour une estimation.</p>
+             <button class="btn-quote" onclick="addItem('Estimation: Terrain Standard')">Ajouter / Add</button>`,
         en: `<h3>Standard Lot</h3>
-             <p>Included: Mowing, trimming, blowing clippings, and once a month edging.</p>
-             <p><strong>Note:</strong> Please email your address and lawn size to mcsolutiongazon@gmail.com to receive an estimate.</p>
-             <button class="btn-quote" onclick="addItem('Estimate: Standard Lot')">Add to list</button>`
+             <ul><li>Mowing, trimming, blowing clippings</li><li>Once a month edging</li></ul>
+             <p>Please email your address and lawn size to <strong>mcsolutiongazon@gmail.com</strong> for an estimate.</p>
+             <button class="btn-quote" onclick="addItem('Estimate: Standard Lot')">Add</button>`
     }
 };
 
@@ -70,7 +70,7 @@ function updateCart() {
 }
 
 function sendFinalEmail() {
-    if (!selection.length) return alert("Veuillez choisir un service! / Please select a service!");
-    const body = encodeURIComponent("Bonjour,\n\nJe souhaite une estimation pour :\nI would like a quote for:\n\n" + selection.join("\n") + "\n\nAdresse / Address:\nTaille du terrain / Lawn size:");
-    window.location.href = `mailto:mcsolutiongazon@gmail.com?subject=Demande d'estimation&body=${body}`;
+    if (!selection.length) return alert("Sélectionnez un service!");
+    const body = encodeURIComponent("Demande d'estimation pour :\n\n" + selection.join("\n") + "\n\nAdresse:");
+    window.location.href = `mailto:mcsolutiongazon@gmail.com?subject=Estimation MC Solution&body=${body}`;
 }
