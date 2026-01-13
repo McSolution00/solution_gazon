@@ -4,9 +4,11 @@ let tempAddons = [];
 const modalData = {
     'small-lot': {
         fr: `<h3>Petit terrain (65$ / visite)</h3>
-             <p>Le service inclut la tonte, le coupe-bordure (weedeater) et le soufflage. La bordure mécanique est incluse une fois par mois.</p><hr>`,
+             <p>Le service inclut la tonte, le coupe-bordure (weedeater) et le soufflage. La bordure mécanique est incluse une fois par mois.</p>
+             <p><i>* Prix basé sur un contrat saisonnier</i></p><hr>`,
         en: `<h3>Small Lot ($65 / visit)</h3>
              <p>Service includes mowing, weed-eating, and blowing. Mechanical edging included once a month.</p>
+             <p><i>* Price based on a season contract</i></p>
              <button class="btn-quote" onclick="addItem('Petit terrain / Small Lot (65$/visite)')">Ajouter / Add</button>`
     },
     'custom-quote': {
@@ -29,6 +31,7 @@ const addonsList = [
     { fr: "Aération et déchaumage", en: "Aeration and dethatching" },
     { fr: "Contrôle des mauvaises herbes", en: "Weed control" },
     { fr: "Fertilisation écologique", en: "Eco-friendly fertilization" },
+    { fr: "Application de chaux", en: "Limestone application" },
     { fr: "Nettoyage des dommages hivernaux", en: "Winter damage repair" },
     { fr: "Traitements vers blancs & punaises de céréales", en: "White grub and chinch bug treatment" },
     { fr: "Pose de gazon en rouleaux", en: "Sod installation (rolled sod)" }
